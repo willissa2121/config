@@ -50,6 +50,13 @@ spring:
           filters:
           - RewritePath=/license/(?<path>.*), /$\{path}
           - RemoveRequestHeader= Cookie,Set-Cookie
+        - id: baylor
+          uri: https://baylor.edu
+          predicates:
+          - Path=/baylor/**
+          filters:
+          - RewritePath=/license/(?<path>.*), /$\{path}
+          - RemoveRequestHeader= Cookie,Set-Cookie
 
 
 keycloak:
