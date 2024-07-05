@@ -43,6 +43,13 @@ spring:
           filters:
           - RewritePath=/license/(?<path>.*), /$\{path}
           - RemoveRequestHeader= Cookie,Set-Cookie
+        - id: google
+          uri: https://google.com
+          predicates:
+          - Path=/google/**
+          filters:
+          - RewritePath=/license/(?<path>.*), /$\{path}
+          - RemoveRequestHeader= Cookie,Set-Cookie
 
 
 keycloak:
