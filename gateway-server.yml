@@ -25,39 +25,39 @@ spring:
   cloud:
     loadbalancer.ribbon.enabled: false
     gateway:
-      # discovery.locator:
-      #   enabled: true
-      #   lowerCaseServiceId: true
-        routes:
-        - id: organization-service
-          uri: lb://organization-service
-          predicates:
-          - Path=/organization/**
-          filters:
-          - RewritePath=/organization/(?<path>.*), /$\{path}
-          - RemoveRequestHeader= Cookie,Set-Cookie
-        - id: licensing-service
-          uri: lb://licensing-service
-          predicates:
-          - Path=/license/**
-          filters:
-          - RewritePath=/license/(?<path>.*), /$\{path}
-          - RemoveRequestHeader= Cookie,Set-Cookie
-        - id: google
-          uri: https://google.com
-          predicates:
-          - Path=/google/**
-          filters:
-          - RewritePath=/license/(?<path>.*), /$\{path}
-          - RemoveRequestHeader= Cookie,Set-Cookie
-        - id: baylor
-          uri: https://baylor.edu
-          predicates:
-          - Path=/baylor/**
-          filters:
-          - RewritePath=/license/(?<path>.*), /$\{path}
-          - RemoveRequestHeader= Cookie,Set-Cookie
-
+      discovery.locator:
+         enabled: true
+         lowerCaseServiceId: true
+      #        routes:
+      #        - id: organization-service
+      #          uri: lb://organization-service
+      #          predicates:
+      #          - Path=/organization/**
+      #          filters:
+      #          - RewritePath=/organization/(?<path>.*), /$\{path}
+      #          - RemoveRequestHeader= Cookie,Set-Cookie
+      #        - id: licensing-service
+      #          uri: lb://licensing-service
+      #          predicates:
+      #          - Path=/license/**
+      #          filters:
+      #          - RewritePath=/license/(?<path>.*), /$\{path}
+      #          - RemoveRequestHeader= Cookie,Set-Cookie
+      #        - id: google
+      #          uri: https://google.com
+      #          predicates:
+      #          - Path=/google/**
+      #          filters:
+      #          - RewritePath=/license/(?<path>.*), /$\{path}
+      #          - RemoveRequestHeader= Cookie,Set-Cookie
+      #        - id: baylor
+      #          uri: https://baylor.edu
+      #          predicates:
+      #          - Path=/baylor/**
+      #          filters:
+      #          - RewritePath=/license/(?<path>.*), /$\{path}
+      #          - RemoveRequestHeader= Cookie,Set-Cookie
+      #
 
 keycloak:
     auth-server-url: http://localhost:8080/auth
